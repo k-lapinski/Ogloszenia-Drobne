@@ -7,13 +7,13 @@ namespace Ogłoszenia_Drobne.Migrations
     using System.Resources;
     
     [GeneratedCode("EntityFramework.Migrations", "6.4.4")]
-    public sealed partial class firstmigration : IMigrationMetadata
+    public sealed partial class MigrationFirst : IMigrationMetadata
     {
-        private readonly ResourceManager Resources = new ResourceManager(typeof(firstmigration));
+        private readonly ResourceManager Resources = new ResourceManager(typeof(MigrationFirst));
         
         string IMigrationMetadata.Id
         {
-            get { return "202211091344430_first-migration"; }
+            get { return "202211141142303_MigrationFirst"; }
         }
         
         string IMigrationMetadata.Source

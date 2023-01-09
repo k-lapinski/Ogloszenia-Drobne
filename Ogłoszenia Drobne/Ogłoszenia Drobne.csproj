@@ -46,6 +46,9 @@
     <WarningLevel>4</WarningLevel>
   </PropertyGroup>
   <ItemGroup>
+    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform, Version=2.0.1.0, Culture=neutral, PublicKeyToken=31bf3856ad364e35, processorArchitecture=MSIL">
+      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
+    </Reference>
     <Reference Include="Microsoft.CSharp" />
     <Reference Include="System" />
     <Reference Include="System.Data" />
@@ -158,32 +161,46 @@
     <Reference Include="Microsoft.Owin.Security.OAuth">
       <HintPath>..\packages\Microsoft.Owin.Security.OAuth.4.0.1\lib\net45\Microsoft.Owin.Security.OAuth.dll</HintPath>
     </Reference>
-    <Reference Include="Microsoft.CodeDom.Providers.DotNetCompilerPlatform">
-      <HintPath>..\packages\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.2.0.1\lib\net45\Microsoft.CodeDom.Providers.DotNetCompilerPlatform.dll</HintPath>
-    </Reference>
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="AnnouncementsController.cs" />
     <Compile Include="App_Start\BundleConfig.cs" />
     <Compile Include="App_Start\FilterConfig.cs" />
     <Compile Include="App_Start\IdentityConfig.cs" />
     <Compile Include="App_Start\RouteConfig.cs" />
     <Compile Include="App_Start\Startup.Auth.cs" />
+    <Compile Include="CategoriesController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
+    <Compile Include="DAL\AppDbContext.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202211091344430_first-migration.cs" />
-    <Compile Include="Migrations\202211091344430_first-migration.designer.cs">
-      <DependentUpon>202211091344430_first-migration.cs</DependentUpon>
+    <Compile Include="Migrations\202211141142303_MigrationFirst.cs" />
+    <Compile Include="Migrations\202211141142303_MigrationFirst.designer.cs">
+      <DependentUpon>202211141142303_MigrationFirst.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211141144424_MigrationSecond.cs" />
+    <Compile Include="Migrations\202211141144424_MigrationSecond.designer.cs">
+      <DependentUpon>202211141144424_MigrationSecond.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202211172053391_thirdMigration.cs" />
+    <Compile Include="Migrations\202211172053391_thirdMigration.designer.cs">
+      <DependentUpon>202211172053391_thirdMigration.cs</DependentUpon>
+    </Compile>
+    <Compile Include="Migrations\202301092254193_nextooo.cs" />
+    <Compile Include="Migrations\202301092254193_nextooo.designer.cs">
+      <DependentUpon>202301092254193_nextooo.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\Announcement.cs" />
     <Compile Include="Models\Category.cs" />
+    <Compile Include="Models\Dictionary.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
+    <Compile Include="Models\Newsletter.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
     <Compile Include="Startup.cs" />
   </ItemGroup>
@@ -243,6 +260,16 @@
     <Content Include="Views\Manage\VerifyPhoneNumber.cshtml" />
     <Content Include="Views\Shared\Lockout.cshtml" />
     <Content Include="Views\Shared\_LoginPartial.cshtml" />
+    <Content Include="Views\Announcements\Create.cshtml" />
+    <Content Include="Views\Announcements\Delete.cshtml" />
+    <Content Include="Views\Announcements\Details.cshtml" />
+    <Content Include="Views\Announcements\Edit.cshtml" />
+    <Content Include="Views\Announcements\Index.cshtml" />
+    <Content Include="Views\Categories\Create.cshtml" />
+    <Content Include="Views\Categories\Delete.cshtml" />
+    <Content Include="Views\Categories\Details.cshtml" />
+    <Content Include="Views\Categories\Edit.cshtml" />
+    <Content Include="Views\Categories\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -261,8 +288,17 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202211091344430_first-migration.resx">
-      <DependentUpon>202211091344430_first-migration.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202211141142303_MigrationFirst.resx">
+      <DependentUpon>202211141142303_MigrationFirst.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211141144424_MigrationSecond.resx">
+      <DependentUpon>202211141144424_MigrationSecond.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202211172053391_thirdMigration.resx">
+      <DependentUpon>202211172053391_thirdMigration.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202301092254193_nextooo.resx">
+      <DependentUpon>202301092254193_nextooo.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

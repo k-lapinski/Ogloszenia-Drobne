@@ -20,6 +20,11 @@ namespace Ogłoszenia_Drobne.Models
 
     public class ApplicationDbContext : IdentityDbContext<ApplicationUser>
     {
+        public DbSet<Announcement> Announcements { get; set; }
+        public DbSet<Category> Categories { get; set; }
+        public DbSet<Dictionary> Dictionaries { get; set; }
+        public DbSet<Newsletter> Newsletter { get; set; }
+
         public ApplicationDbContext()
             : base("DefaultConnection", throwIfV1Schema: false)
         {

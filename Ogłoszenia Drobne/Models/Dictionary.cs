@@ -6,15 +6,10 @@ using System.Web;
 
 namespace Ogłoszenia_Drobne.Models
 {
-    public class Category
+    public class Dictionary
     {
         [Key]
         public int Id { get; set; }
-        [Required]
-        public string CategoryName { get; set; }
-
-       
-        public ICollection<Announcement> Announcements { get; set; }
-
+        public string Name { get; set; }
     }
 }

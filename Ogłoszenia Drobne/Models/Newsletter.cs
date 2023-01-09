@@ -6,15 +6,16 @@ using System.Web;
 
 namespace Ogłoszenia_Drobne.Models
 {
-    public class Category
+    public class Newsletter
     {
         [Key]
         public int Id { get; set; }
         [Required]
-        public string CategoryName { get; set; }
-
-       
-        public ICollection<Announcement> Announcements { get; set; }
-
+        [StringLength(250)]
+        public string Title { get; set; }
+        [Required]
+        [StringLength(250)]
+        public string Description { get; set; }
+        public string Author { get; set; }
     }
 }
