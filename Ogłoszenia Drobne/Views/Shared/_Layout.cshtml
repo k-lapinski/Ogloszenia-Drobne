@@ -21,11 +21,21 @@
             </div>
             <div class="navbar-collapse collapse">
                 <ul class="nav navbar-nav">
+       
                     <li>@Html.ActionLink("Announcements", "Index", "Announcements")</li>
                     <li>@Html.ActionLink("Create Announcement", "Create", "Announcements")</li>
-                    @if (HttpContext.Current.User.Identity.Name.Equals("Kamil123@wp.pl")) {<li>@Html.ActionLink("Create News", "Create", "Newsletters")</li>  }
-                    @if (HttpContext.Current.User.Identity.Name.Equals("Kamil123@wp.pl")) {<li>@Html.ActionLink("Create Category", "Create", "Categories")</li>  }  
-                      @if (HttpContext.Current.User.Identity.Name.Equals("Kamil123@wp.pl")) {<li>@Html.ActionLink("Categories", "Index", "Categories")</li>  } 
+                    @if (HttpContext.Current.User.Identity.Name.Equals("Kamil123@wp.pl"))
+                    {
+                        <li>@Html.ActionLink("Create News", "Create", "Newsletters")</li>
+}
+                    @if (HttpContext.Current.User.Identity.Name.Equals("Kamil123@wp.pl"))
+                    {
+                        <li>@Html.ActionLink("Create Category", "Create", "Categories")</li>
+}
+                    @if (HttpContext.Current.User.Identity.Name.Equals("Kamil123@wp.pl"))
+                    {
+                        <li>@Html.ActionLink("Categories", "Index", "Categories")</li>
+}
                 </ul>
                 @Html.Partial("_LoginPartial")
             </div>

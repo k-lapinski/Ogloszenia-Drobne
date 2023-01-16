@@ -30,6 +30,21 @@ namespace Ogłoszenia_Drobne
 
         }
 
+        public ActionResult My(string search)
+        {
+            if (search == null)
+            {
+                return View(db.Announcements.ToList());
+            }
+            //return View(db.Announcements.ToList());
+            else
+            {
+                return View(db.Announcements.Where(x => x.Title.Contains(search)).ToList());
+            }
+
+        }
+
+
         // GET: Announcements/Details/5
         public ActionResult Details(int? id)
         {

@@ -276,6 +276,7 @@
     <Content Include="Views\Newsletters\Details.cshtml" />
     <Content Include="Views\Newsletters\Edit.cshtml" />
     <Content Include="Views\Newsletters\Index.cshtml" />
+    <Content Include="Views\Announcements\My.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
