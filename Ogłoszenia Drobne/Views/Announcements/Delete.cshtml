@@ -1,7 +1,8 @@
 ﻿@model Ogłoszenia_Drobne.Models.Announcement
-
+@using Microsoft.AspNet.Identity;
 @{
     ViewBag.Title = "Delete";
+    var userId = HttpContext.Current.User.Identity.GetUserId();
 }
 
 <h2>Delete</h2>

@@ -86,7 +86,7 @@ namespace Ogłoszenia_Drobne
         public ActionResult Edit([Bind(Include = "Id,Title,Description,Address,ImgPath,NumberOfEntries,IdAuthor")] Announcement announcement)
         {
             if (ModelState.IsValid)
-            {
+            {   announcement.IdAuthor = User.Identity.GetUserId();
                 db.Entry(announcement).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
