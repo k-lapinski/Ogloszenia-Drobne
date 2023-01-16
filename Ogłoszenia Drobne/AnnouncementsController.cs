@@ -17,9 +17,17 @@ namespace Ogłoszenia_Drobne
         private ApplicationDbContext db = new ApplicationDbContext();
         
         // GET: Announcements
-        public ActionResult Index()
+        public ActionResult Index(string search)
         {
-            return View(db.Announcements.ToList());
+            if (search == null)
+            {
+                return View(db.Announcements.ToList());
+            }
+            //return View(db.Announcements.ToList());
+            else {
+                return View(db.Announcements.Where(x => x.Title.Contains(search)).ToList());
+            }
+
         }
 
         // GET: Announcements/Details/5
