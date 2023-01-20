@@ -2,6 +2,7 @@
 using System.Collections.Generic;
 using System.Data;
 using System.Data.Entity;
+using System.Diagnostics;
 using System.Linq;
 using System.Net;
 using System.Security.Claims;
@@ -76,6 +77,61 @@ namespace Ogłoszenia_Drobne
         {
             if (ModelState.IsValid)
             {
+                List<Dictionary> listDictionary = db.Dictionaries.ToList();
+
+                foreach(Dictionary dictionary in listDictionary)
+                {
+                    if (announcement.Title.Contains(dictionary.Name)) { 
+                    string[] subs = announcement.Title.Split(' ');
+                    announcement.Title = " ";
+                    for (int i = 0; i < subs.Length; i++) {
+                        if (subs[i].Contains(dictionary.Name))  {
+                            subs[i] = " *** ";
+                        } }
+                        for (int i = 0; i < subs.Length; i++) { 
+                        announcement.Title += subs[i];
+                        }
+
+                    }
+
+                    if (announcement.Description.Contains(dictionary.Name))
+                    {
+                        string[] subs = announcement.Title.Split(' ');
+                        announcement.Description = " ";
+                        for (int i = 0; i < subs.Length; i++)
+                        {
+                            if (subs[i].Contains(dictionary.Name))
+                            {
+                                subs[i] = " *** ";
+                            }
+                        }
+                        for (int i = 0; i < subs.Length; i++)
+                        {
+                            announcement.Description += subs[i];
+                        }
+
+                    }
+
+                    if (announcement.Address.Contains(dictionary.Name))
+                    {
+                        string[] subs = announcement.Title.Split(' ');
+                        announcement.Address = " ";
+                        for (int i = 0; i < subs.Length; i++)
+                        {
+                            if (subs[i].Contains(dictionary.Name))
+                            {
+                                subs[i] = " *** ";
+                            }
+                        }
+                        for (int i = 0; i < subs.Length; i++)
+                        {
+                            announcement.Address += subs[i];
+                        }
+
+                    }
+
+                }
+
                 var userId = User.Identity.GetUserId();
                 announcement.IdAuthor = userId;
                 db.Announcements.Add(announcement);
@@ -108,8 +164,70 @@ namespace Ogłoszenia_Drobne
         [ValidateAntiForgeryToken]
         public ActionResult Edit([Bind(Include = "Id,Title,Description,Address,ImgPath,NumberOfEntries,IdAuthor")] Announcement announcement)
         {
+            List<Dictionary> listDictionary = db.Dictionaries.ToList();
+
+            foreach (Dictionary dictionary in listDictionary)
+            {
+                if (announcement.Title.Contains(dictionary.Name))
+                {
+                    string[] subs = announcement.Title.Split(' ');
+                    announcement.Title = " ";
+                    for (int i = 0; i < subs.Length; i++)
+                    {
+                        if (subs[i].Contains(dictionary.Name))
+                        {
+                            subs[i] = " *** ";
+                        }
+                    }
+                    for (int i = 0; i < subs.Length; i++)
+                    {
+                        announcement.Title += subs[i];
+                    }
+
+                }
+
+                if (announcement.Description.Contains(dictionary.Name))
+                {
+                    string[] subs = announcement.Title.Split(' ');
+                    announcement.Description = " ";
+                    for (int i = 0; i < subs.Length; i++)
+                    {
+                        if (subs[i].Contains(dictionary.Name))
+                        {
+                            subs[i] = " *** ";
+                        }
+                    }
+                    for (int i = 0; i < subs.Length; i++)
+                    {
+                        announcement.Description += subs[i];
+                    }
+
+                }
+
+                if (announcement.Address.Contains(dictionary.Name))
+                {
+                    string[] subs = announcement.Title.Split(' ');
+                    announcement.Address = " ";
+                    for (int i = 0; i < subs.Length; i++)
+                    {
+                        if (subs[i].Contains(dictionary.Name))
+                        {
+                            subs[i] = " *** ";
+                        }
+                    }
+                    for (int i = 0; i < subs.Length; i++)
+                    {
+                        announcement.Address += subs[i];
+                    }
+
+                }
+
+            }
+
+
             if (ModelState.IsValid)
-            {   announcement.IdAuthor = User.Identity.GetUserId();
+            {  
+                announcement.IdAuthor = User.Identity.GetUserId();
                 db.Entry(announcement).State = EntityState.Modified;
                 db.SaveChanges();
                 return RedirectToAction("Index");
@@ -117,6 +235,7 @@ namespace Ogłoszenia_Drobne
             return View(announcement);
         }
 
+     
         // GET: Announcements/Delete/5
         public ActionResult Delete(int? id)
         {

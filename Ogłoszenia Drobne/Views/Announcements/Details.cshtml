@@ -1,8 +1,8 @@
 ﻿@model Ogłoszenia_Drobne.Models.Announcement
-
+@using Microsoft.AspNet.Identity;
 @{
     ViewBag.Title = "Details";
-
+    var userId = HttpContext.Current.User.Identity.GetUserId();
 }
 
 <h2>Details</h2>
@@ -39,9 +39,9 @@
             @Html.DisplayNameFor(model => model.ImgPath)
         </dt>
 
-        <dd>
-            @Html.DisplayFor(model => model.ImgPath)
-        </dd>
+        <td>
+            <img src="~/Images/@Url.Content(Model.ImgPath)" width="300px" height="200px" />
+        </td>
 
         <dt>
             @Html.DisplayNameFor(model => model.NumberOfEntries)
@@ -50,19 +50,11 @@
         <dd>
             @Html.DisplayFor(model => model.NumberOfEntries)
         </dd>
-
-        <dt>
-            @Html.DisplayNameFor(model => model.IdAuthor)
-        </dt>
-
-        <dd>
-            @Html.DisplayFor(model => model.IdAuthor)
-        </dd>
-
+       
     </dl>
 </div>
 <p>
 
-   
+
     @Html.ActionLink("Back to List", "Index")
 </p>

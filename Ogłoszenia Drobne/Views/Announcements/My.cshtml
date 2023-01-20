@@ -60,8 +60,7 @@
         @Html.DisplayFor(modelItem => item.Address)
     </td>
     <td>
-    
-    <img src="~/Img/@item.ImgPath" height="200" width="200" />
+        <img src="~/Images/@Url.Content(item.ImgPath)" width="300px" height="200px" />
     </td>
     <td>
         @Html.DisplayFor(modelItem => item.NumberOfEntries)
