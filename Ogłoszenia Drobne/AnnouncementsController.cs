@@ -54,6 +54,10 @@ namespace Ogłoszenia_Drobne
                 return new HttpStatusCodeResult(HttpStatusCode.BadRequest);
             }
             Announcement announcement = db.Announcements.Find(id);
+            var numOfEntries = announcement.NumberOfEntries++;
+            db.Database.ExecuteSqlCommand("UPDATE Announcements SET NumberOfEntries = " + numOfEntries + "WHERE Id= {0}" , id);
+            db.SaveChanges();
+
             if (announcement == null)
             {
                 return HttpNotFound();
